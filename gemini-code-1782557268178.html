@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Tổng Hợp Kiến Thức Ngữ Pháp & Từ Vựng - Ms Lê Hằng English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Quicksand:wght=500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #8854C0;
+            --secondary-color: #FDCB6E;
+            --accent-color: #00C9A7;
+            --correct-color: #00D26A;
+            --wrong-color: #FF4757;
+            --text-dark: #2D3436;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', 'Nunito', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #8854C0, #FDCB6E, #00C9A7, #FF7675);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+            position: relative;
+            padding: 20px 10px;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M12 12l2 2-2 2-2-2zm20 8c2 0 3-1 3-3s-1-3-3-3-3 1-3 3 1 3 3 3zm15 5l2 3 3 2-3 2-2 3-2-3-3-2 3-2zm-6 20c1.5 0 2.5-1 2.5-2.5S32.5 30 31 30s-2.5 1-2.5 2.5 1 2.5 2.5 2.5zM10 45l2 2-2 2-2-2z'/%3E%3Ccircle cx='50' cy='10' r='2'/%3E%3Ccircle cx='10' cy='50' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            animation: floatingPattern 30s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatingPattern {
+            from { background-position: 0 0; }
+            to { background-position: 600px 600px; }
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.1);
+        }
+
+        header h2 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 900;
+        }
+
+        .alert-box {
+            background: #FFEAA7;
+            border: 3px solid #FDCB6E;
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 0 #E17055;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .alert-title {
+            color: #D63031;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 900;
+        }
+
+        .section-title {
+            background: #FF7675;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 18px;
+            margin: 30px 0 15px 0;
+            display: inline-block;
+            font-weight: 900;
+            box-shadow: 0 4px 0 #D63031;
+            font-size: 1.15rem;
+            max-width: 100%;
+        }
+
+        .quiz-card {
+            background: var(--card-bg);
+            border-radius: 22px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 0 rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            color: #2D3436;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media(min-width: 600px) {
+            .options-container.grid-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 15px;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 4px 0 #E2E8F0;
+            transition: transform 0.1s ease, background-color 0.2s ease;
+            color: #4A5568;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #CBD5E1;
+            background-color: #F8FAFC;
+        }
+
+        .option-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #CBD5E1;
+        }
+
+        .option-btn.correct {
+            background-color: var(--correct-color) !important;
+            color: white !important;
+            border-color: #00B359 !important;
+            box-shadow: 0 4px 0 #00803F !important;
+        }
+
+        .option-btn.wrong {
+            background-color: var(--wrong-color) !important;
+            color: white !important;
+            border-color: #E11D48 !important;
+            box-shadow: 0 4px 0 #9F1239 !important;
+        }
+
+        .option-btn.disabled {
+            pointer-events: none;
+        }
+
+        .explanation-box {
+            margin-top: 18px;
+            background: #F8FAFC;
+            border-left: 6px solid var(--primary-color);
+            border-radius: 0 15px 15px 0;
+            padding: 18px;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            display: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .explanation-box.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .exp-section {
+            margin-bottom: 10px;
+        }
+
+        .exp-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-title {
+            font-weight: 900;
+            color: #1E293B;
+            border-bottom: 1px dashed #CBD5E1;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exp-highlight {
+            color: #2563EB;
+            font-weight: 700;
+            background: #EFF6FF;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .shake { animation: shake 0.4s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .submit-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .btn-submit {
+            background: #FF7675;
+            color: white;
+            border: none;
+            padding: 16px 55px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #D63031;
+            transition: all 0.1s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #D63031;
+        }
+
+        .btn-submit:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #D63031;
+        }
+
+        .result-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .result-content {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            max-width: 500px;
+            width: 92%;
+            text-align: center;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .result-score {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .result-comment {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #334155;
+            white-space: pre-line;
+        }
+
+        .btn-close-result {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #00A387;
+        }
+
+        #confetti-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <header>
+            <h2>Hệ Thống Trắc Nghiệm Toàn Diện - Biên soạn: Ms Lê Hằng English</h2>
+        </header>
+
+        <div class="alert-box">
+            <span class="alert-title">⚠️ HƯỚNG DẪN HỌC TẬP QUAN TRỌNG ⚠️</span>
+            Học tiếng Anh cốt lõi ở việc hiểu bản chất ngữ pháp và tích lũy từ vựng một cách khoa học.<br>
+            Mỗi khi chọn xong một câu, hệ thống sẽ mở ngay <strong>Bảng Phân Tích Giải Thích</strong>. Các con nhớ đọc thật kỹ, ghi chép lại các từ vựng mới và cấu trúc cốt lõi vào vở để ghi nhớ sâu sắc nhé! Đừng chỉ bấm chọn cho xong!
+        </div>
+
+        <div id="quiz-container">
+            <!-- Toàn bộ ngân hàng câu hỏi đồ sộ được đổ tự động tại đây bằng JS -->
+        </div>
+
+        <div class="submit-container">
+            <button type="button" class="btn-submit" onclick="gradeEntireQuiz()">NỘP BÀI THI</button>
+        </div>
+    </div>
+
+    <div class="result-overlay" id="result-modal">
+        <div class="result-content">
+            <div class="result-score" id="score-text">0/0</div>
+            <div class="result-comment" id="comment-text"></div>
+            <button class="btn-close-result" onclick="closeResultModal()">Xem lại và sửa lỗi sai</button>
+        </div>
+    </div>
+
+    <script>
+        // --- KHỞI TẠO AUDIO CONTEXT ĐỂ PHÁT SOUND EFFECTS CHÂN THỰC TỰ NHIÊN ---
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08); // E5
+                osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.16); // G5
+                gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.005, audioCtx.currentTime + 0.4);
+                osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+            } else {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(140, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(90, audioCtx.currentTime + 0.22);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.005, audioCtx.currentTime + 0.25);
+                osc.start(); osc.stop(audioCtx.currentTime + 0.25);
+            }
+        }
+
+        // --- CƠ SỞ DỮ LIỆU TOÀN VẸN 100% CÁC CÂU HỎI TRONG ĐỀ BÀI (KHÔNG CẮT BỚT BẤT KỲ CHỮ NÀO) ---
+        const quizData = [
+            // --- EXERCISE 1 ---
+            {
+                id: 1, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "1. The Vietnamese society is becoming more ______, allowing people to express their opinions and participate in decision-making processes.",
+                options: [
+                    { text: "A. stressful", isCorrect: false }, { text: "B. convenient", isCorrect: false },
+                    { text: "C. democratic", isCorrect: true }, { text: "D. modern", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Xã hội Việt Nam đang trở nên dân chủ hơn, cho phép người dân bày tỏ ý kiến và tham gia vào các quá trình ra quyết định.",
+                    lexicon: "<b>democratic</b> (adj): dân chủ | <b>stressful</b> (adj): căng thẳng | <b>convenient</b> (adj): tiện lợi | <b>modern</b> (adj): hiện đại.",
+                    reason: "Mệnh đề phía sau 'allowing people to express their opinions and participate in decision-making' (cho phép người dân bày tỏ ý kiến và tham gia ra quyết định) là định nghĩa cốt lõi của tính chất 'dân chủ' (democratic). Do đó phương án C là từ duy nhất hợp ngữ cảnh.",
+                    wrongReason: "Các từ khác hoàn toàn lệch nghĩa và không giải thích được cho mệnh đề làm rõ ở vế sau."
+                }
+            },
+            {
+                id: 2, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "2. Young people in Vietnam are encouraged to ______ higher education and career opportunities.",
+                options: [
+                    { text: "A. pursue", isCorrect: true }, { text: "B. do", isCorrect: false },
+                    { text: "C. get", isCorrect: false }, { text: "D. feel", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Người trẻ ở Việt Nam được khuyến khích theo đuổi học vấn bậc cao và các cơ hội nghề nghiệp.",
+                    lexicon: "<b>pursue</b> (v): theo đuổi (ước mơ, học vấn, sự nghiệp) | Collocation thường gặp: <i>pursue higher education / pursue a career</i>.",
+                    reason: "Động từ 'pursue' là động từ chuẩn mang tính học thuật cao nhất luôn đi liền với các danh từ như 'education' hay 'opportunities' để chỉ hành động kiên trì đi theo, cố gắng đạt được mục tiêu lâu dài.",
+                    wrongReason: "Do, get, feel không tạo thành cụm từ kết hợp mang sắc thái trang trọng và đúng nghĩa học thuật ngữ cảnh này."
+                }
+            },
+            {
+                id: 3, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "3. ______ is respected in Vietnamese culture, and people are mindful of not intruding on others' personal space.",
+                options: [
+                    { text: "A. Time", isCorrect: false }, { text: "B. Understanding", isCorrect: false },
+                    { text: "C. Privacy", isCorrect: true }, { text: "D. Opportunity", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Sự riêng tư được tôn trọng trong văn hóa Việt Nam, và mọi người luôn lưu ý không xâm phạm vào không gian cá nhân của người khác.",
+                    lexicon: "<b>privacy</b> (n): sự riêng tư | <b>personal space</b> (n): không gian cá nhân | <b>intrude on</b> (v): xâm phạm, can thiệp vào.",
+                    reason: "Cụm từ ở vế sau 'not intruding on others' personal space' (không xâm phạm vào không gian cá nhân của người khác) giải thích trực tiếp cho khái niệm danh từ đứng đầu câu là 'Privacy' (Sự riêng tư).",
+                    wrongReason: "Time (thời gian), Understanding (sự thấu hiểu), Opportunity (cơ hội) không liên quan đến việc giữ khoảng cách không gian cá nhân."
+                }
+            },
+            {
+                id: 4, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "4. The ______ is evident in Vietnam, with differences in values and lifestyles between older and younger generations.",
+                options: [
+                    { text: "A. conflict", isCorrect: false }, { text: "B. attitude", isCorrect: false },
+                    { text: "C. mass communication", isCorrect: false }, { text: "D. generation gap", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Khoảng cách thế hệ hiển hiện rất rõ tại Việt Nam, với những sự khác biệt về giá trị sống và phong cách sống giữa thế hệ đi trước và thế hệ trẻ.",
+                    lexicon: "<b>generation gap</b> (n.comp): khoảng cách thế hệ | <b>evident</b> (adj): hiển nhiên, rõ rệt | <b>values</b> (n): hệ giá trị.",
+                    reason: "Cụm từ làm rõ nghĩa 'differences in values and lifestyles between older and younger generations' (sự khác biệt về giá trị và lối sống giữa thế hệ già và trẻ) chính là định nghĩa chính xác tuyệt đối của thuật ngữ ghép 'generation gap'.",
+                    wrongReason: "Conflict (xung đột) mang nghĩa quá tiêu cực gay gắt; attitude (thái độ) và mass communication (truyền thông đại chúng) không mô tả sự khác biệt tuổi tác này."
+                }
+            },
+            {
+                id: 5, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "5. Many people in Vietnam enjoy spending time ______, especially during hot weather or rainy seasons.",
+                options: [
+                    { text: "A. outdoors", isCorrect: false }, { text: "B. indoors", isCorrect: true },
+                    { text: "C. in the garden", isCorrect: false }, { text: "D. under", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Nhiều người ở Việt Nam thích dành thời gian ở trong nhà, đặc biệt là trong suốt thời tiết nắng nóng hoặc các mùa mưa.",
+                    lexicon: "<b>indoors</b> (adv): ở trong nhà, trong không gian kín | <b>outdoors</b> (adv): ngoài trời.",
+                    reason: "Điều kiện thời tiết được nhắc tới là 'hot weather' (thời tiết nắng nóng gay gắt) hoặc 'rainy seasons' (mùa mưa bão). Vào những lúc thời tiết khắc nghiệt như vậy, xu hướng của mọi người là ở 'indoors' (trong nhà) để tránh nóng và tránh ướt.",
+                    wrongReason: "Outdoors hoặc in the garden trái ngược hoàn toàn với logic bảo vệ sức khỏe khi trời mưa bão hoặc quá nắng nóng."
+                }
+            },
+            {
+                id: 6, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "6. Living ______ have improved significantly in recent years, with more access to modern housing and amenities.",
+                options: [
+                    { text: "A. conditions", isCorrect: true }, { text: "B. relationships", isCorrect: false },
+                    { text: "C. opportunities", isCorrect: false }, { text: "D. traditions", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Điều kiện sống đã được cải thiện một cách đáng kể trong những năm gần đây, với việc tiếp cận nhiều hơn tới nhà ở hiện đại và các tiện nghi sinh hoạt.",
+                    lexicon: "Cụm danh từ cố định: <b>living conditions</b> (điều kiện sống) | <b>amenities</b> (n): những tiện nghi (điện, nước, internet, công viên...).",
+                    reason: "Sự xuất hiện của 'modern housing' (nhà ở hiện đại) và 'amenities' (tiện nghi xã hội) là các yếu tố cấu thành trực tiếp nên khái niệm cụm từ cố định 'living conditions' (điều kiện sống).",
+                    wrongReason: "Living relationships (mối quan hệ sống), living opportunities hay living traditions không tạo thành collocations chuẩn ngữ nghĩa Anh ngữ."
+                }
+            },
+            {
+                id: 7, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "7. Before motorbikes became popular, bicycles were the main mode of ______ for many Vietnamese people in rural areas.",
+                options: [
+                    { text: "A. communication", isCorrect: false }, { text: "B. entertainment", isCorrect: false },
+                    { text: "C. activities", isCorrect: false }, { text: "D. transportation", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Trước khi xe máy trở nên phổ biến, xe đạp từng là phương thức giao thông/đi lại chính của nhiều người dân Việt Nam ở các vùng nông thôn.",
+                    lexicon: "Cụm thuật ngữ: <b>mode of transportation</b> (phương thức giao thông, hình thức đi lại) | <b>rural areas</b> (n): vùng nông thôn.",
+                    reason: "Bicycles (xe đạp) và motorbikes (xe máy) là các phương tiện đi lại cơ học, vì vậy chúng thuộc danh mục 'transportation' (giao thông vận tải). Cụm từ đi liền 'mode of transportation' là thuật ngữ cố định luôn xuất hiện cùng nhau.",
+                    wrongReason: "Communication (giao tiếp), entertainment (giải trí) và activities (hoạt động) hoàn toàn lệch bản chất của xe đạp."
+                }
+            },
+            {
+                id: 8, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "8. There are a variety of games that use ______, such as rolling them along a track or trying to knock them out of a circle.",
+                options: [
+                    { text: "A. hide-and-seek", isCorrect: false }, { text: "B. tug of war", isCorrect: false },
+                    { text: "C. skipping", isCorrect: false }, { text: "D. marbles", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Có rất nhiều trò chơi sử dụng những viên bi, chẳng hạn như lăn chúng dọc theo một đường rãnh hoặc cố gắng bắn chúng ra khỏi một vòng tròn.",
+                    lexicon: "<b>marbles</b> (n): những viên bi (trò chơi bắn bi) | <b>rolling</b> (v): lăn, bắn | <b>knock out of a circle</b>: bắn văng ra khỏi vòng tròn.",
+                    reason: "Hành động được miêu tả cụ thể ở vế sau là 'rolling them' (lăn chúng) và 'knock them out of a circle' (bắn văng chúng ra khỏi vòng) chính là cách chơi đặc trưng của những viên bi đất/thủy tinh (marbles).",
+                    wrongReason: "Hide-and-seek (trốn tìm), tug of war (kéo co) và skipping (nhảy dây) không sử dụng vật thể hình tròn để lăn bắn."
+                }
+            },
+            {
+                id: 9, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "9. Young people in Vietnam are becoming more ______ and are making their own life choices.",
+                options: [
+                    { text: "A. unnecessary", isCorrect: false }, { text: "B. necessary", isCorrect: false },
+                    { text: "C. independent", isCorrect: true }, { text: "D. depend", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Người trẻ ở Việt Nam đang trở nên tự lập/độc lập hơn và tự đưa ra những lựa chọn cuộc sống của riêng mình.",
+                    lexicon: "<b>independent</b> (adj): tự lập, độc lập | <b>make one's own choices</b>: tự đưa ra quyết định cá nhân.",
+                    reason: "Hành động 'making their own life choices' (tự mình đưa ra các quyết định cuộc đời) chứng tỏ họ mang tính cách tự chủ, không dựa dẫm vào ai, tương ứng với tính từ 'independent'. Vị trí đứng sau phó từ chỉ mức độ 'more' cần một tính từ.",
+                    wrongReason: "Unnecessary (không cần thiết), necessary (cần thiết) sai nghĩa; depend là động từ nên sai loại từ sau chữ 'becoming more'."
+                }
+            },
+            {
+                id: 10, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "10. There might be some dress codes an employee can wear at workplace, but they cannot wear _______________.",
+                options: [
+                    { text: "A. their uniforms", isCorrect: false }, { text: "B. traditional ao dai", isCorrect: false },
+                    { text: "C. jeans with holes", isCorrect: true }, { text: "D. a suit and tie", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Có thể có một số quy định về trang phục mà một nhân viên có thể mặc tại nơi làm việc, nhưng họ không được phép mặc quần jean rách lỗ chỗ.",
+                    lexicon: "<b>dress codes</b> (n): quy tắc ăn mặc | <b>jeans with holes</b> (n): quần bò rách gối/thủng lỗ (thiếu trang trọng).",
+                    reason: "Môi trường công sở đòi hỏi sự chuyên nghiệp, trang trọng và lịch sự tôn trọng khách hàng. Do đó, trang phục phá cách, bụi bặm như 'jeans with holes' (quần jean rách lỗ) là trang phục bị cấm mặc (cannot wear) theo quy chuẩn tác phong số đông.",
+                    wrongReason: "Đồng phục (uniforms), áo dài truyền thống hoặc áo vest thắt ca-vát (suit and tie) đều là các trang phục công sở vô cùng lịch sự và chuẩn mực."
+                }
+            },
+            {
+                id: 11, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "11. Some young people express their individuality through fashion choices like wearing clothes with holes or ______ hair.",
+                options: [
+                    { text: "A. dyed", isCorrect: true }, { text: "B. styled", isCorrect: false },
+                    { text: "C. long", isCorrect: false }, { text: "D. curly", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Một số người trẻ thể hiện cá tính riêng biệt của mình thông qua các lựa chọn thời trang như mặc quần áo rách lỗ hoặc nhuộm tóc màu sắc.",
+                    lexicon: "<b>dyed hair</b> (n.comp): tóc nhuộm màu | <b>individuality</b> (n): cá tính cá nhân độc bản.",
+                    reason: "Để thể hiện cá tính phá cách ('express their individuality') đồng điệu với việc 'wearing clothes with holes' (mặc đồ rách cá tính), việc 'dyed hair' (nhuộm tóc màu nổi bật) là một xu hướng thời trang nổi loạn, độc lạ phổ biến của giới trẻ.",
+                    wrongReason: "Tóc được tạo kiểu (styled), tóc dài (long) hay tóc xoăn (curly) là những trạng thái tóc bình thường của số đông, không mang tính đột phá thể hiện cá tính mạnh bằng tóc nhuộm sắc màu."
+                }
+            },
+            {
+                id: 12, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "12. Vietnam has made progress in ensuring ______ of speech and expression, but there are still limitations.",
+                options: [
+                    { text: "A. power", isCorrect: false }, { text: "B. opportunities", isCorrect: false },
+                    { text: "C. freedom", isCorrect: true }, { text: "D. things", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Việt Nam đã đạt được những tiến bộ trong việc đảm bảo quyền tự do ngôn luận và tự do bày tỏ ý kiến, tuy nhiên vẫn còn những hạn chế nhất định.",
+                    lexicon: "Cụm danh từ thuật ngữ cố định: <b>freedom of speech</b> (quyền tự do ngôn luận).",
+                    reason: "Thuật ngữ chính trị - xã hội chuẩn xác đi liền với cấu trúc danh từ là cụm cố định 'freedom of speech' (tự do ngôn luận), được tiếp nối bằng từ 'expression' (tự do biểu đạt tư tưởng).",
+                    wrongReason: "Power (quyền lực), opportunities (cơ hội), things (mọi thứ) không tạo thành thuật ngữ pháp lý chính xác với chữ 'of speech'."
+                }
+            },
+            {
+                id: 13, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "13. The old folktales have been passed down through many ______ of Vietnamese people.",
+                options: [
+                    { text: "A. stories", isCorrect: false }, { text: "B. generations", isCorrect: true },
+                    { text: "C. times", isCorrect: false }, { text: "D. histories", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Những câu chuyện cổ tích ngày xưa đã được truyền lại qua nhiều thế hệ người dân Việt Nam.",
+                    options: "A. câu chuyện; B. thế hệ; C. thời gian; D. lịch sử.",
+                    reason: "Cụm động từ mang tính tiếp nối huyết thống hoặc thời gian lâu đời 'passed down through many...' (truyền lại qua nhiều...) luôn đi với danh từ số nhiều 'generations' (các thế hệ) để chỉ việc ông bà truyền cho cha mẹ, cha mẹ truyền cho con cái.",
+                    wrongReason: "Truyền qua nhiều câu chuyện, nhiều thời gian hay nhiều lịch sử đều sai cấu trúc collocations của từ ngữ văn cảnh cổ tích."
+                }
+            },
+            {
+                id: 14, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "14. Many households now have several ______ such as TVs, refrigerators, and washing machines.",
+                options: [
+                    { text: "A. communication tools", isCorrect: false }, { text: "B. electronic devices", isCorrect: true },
+                    { text: "C. entertainment gadgets", isCorrect: false }, { text: "D. traditional instruments", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Nhiều hộ gia đình hiện nay sở hữu một vài thiết bị điện tử gia dụng chẳng hạn như ti vi, tủ lạnh và máy giặt.",
+                    lexicon: "<b>electronic devices</b> (n): thiết bị điện tử | <b>households</b> (n): các hộ gia đình.",
+                    reason: "Các danh từ liệt kê cụ thể 'TVs' (vô tuyến), 'refrigerators' (tủ lạnh), 'washing machines' (máy giặt) là những đồ dùng vận hành bằng mạch điện năng trong gia đình, thuộc nhóm khái quát hóa danh từ 'electronic devices' (các thiết bị điện tử gia dụng).",
+                    wrongReason: "Tủ lạnh và máy giặt không thể gọi là công cụ truyền thông (communication tools) hay tiện ích giải trí thuần túy (entertainment gadgets)."
+                }
+            },
+            {
+                id: 15, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "15. There are ______ opportunities for education and career development in Vietnam's growing economy.",
+                options: [
+                    { text: "A. various", isCorrect: true }, { text: "B. similar", isCorrect: false },
+                    { text: "C. changeable", isCorrect: false }, { text: "D. multiple", isCorrect: false, comment: "various mô tả tính đa dạng phong phú thích hợp hơn" }
+                ],
+                explanation: {
+                    translation: "Có rất nhiều cơ hội đa dạng khác nhau cho việc phát triển giáo dục và sự nghiệp trong nền kinh tế đang tăng trưởng của Việt Nam.",
+                    lexicon: "<b>various</b> (adj): đa dạng, nhiều kiểu/loại khác nhau phong phú.",
+                    reason: "Nền kinh tế đang đi lên ('growing economy') tạo ra nhiều phân khúc ngành nghề và cấp bậc học tập phong phú, vì vậy tính từ 'various' phản ánh sâu sắc tính chất đa dạng, muôn màu muôn vẻ của các cơ hội này.",
+                    wrongReason: "Similar (tương đồng) sai logic phát triển; changeable (dễ thay đổi thất thường) mang nghĩa tiêu cực không phù hợp."
+                }
+            },
+            {
+                id: 16, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "16. Vietnamese culture is ______, with strong emphasis on respect for elders and family values.",
+                options: [
+                    { text: "A. family-oriented", isCorrect: true }, { text: "B. important", isCorrect: false },
+                    { text: "C. independent", isCorrect: false }, { text: "D. rich", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Văn hóa Việt Nam mang tính hướng về gia đình, với sự nhấn mạnh mạnh mẽ vào việc kính trọng người lớn tuổi và các giá trị gia đình.",
+                    lexicon: "<b>family-oriented</b> (adj): có xu hướng hướng về gia đình, coi trọng gia đình là gốc.",
+                    reason: "Cụm giải thích 'with strong emphasis on respect for elders and family values' (nhấn mạnh vào kính trọng người già và giá trị gia đình) bổ trợ trực tiếp nghĩa cho tính từ ghép 'family-oriented'.",
+                    wrongReason: "Các tính từ quan trọng (important), độc lập (independent) hay giàu có (rich) quá chung chung, không lột tả được nét đặc trưng gia đình ở vế sau."
+                }
+            },
+            {
+                id: 17, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "17. I find it challenging to _____________ new vocabulary words.",
+                options: [
+                    { text: "A. promise", isCorrect: false }, { text: "B. replace", isCorrect: false },
+                    { text: "C. memorise", isCorrect: true }, { text: "D. pursue", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Tớ thấy việc ghi nhớ các từ vựng mới thật là một thử thách khó khăn.",
+                    lexicon: "Cấu trúc: <b>find it + adj + to-V</b> (thấy việc gì như thế nào) | <b>memorise</b> (v): ghi nhớ vào đầu, học thuộc lòng.",
+                    reason: "Khi học ngoại ngữ, hành động đối phó tác động trực tiếp lên 'new vocabulary words' (các từ vựng mới) phổ biến nhất là học thuộc lòng, ghi nhớ chúng vào trí não -> Động từ phù hợp nhất là 'memorise'.",
+                    wrongReason: "Promise (hứa), replace (thay thế), pursue (theo đuổi) không đi kèm tạo nghĩa logic với từ vựng."
+                }
+            },
+            {
+                id: 18, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "18. It is common for people in Vietnam to ______ a note of important information or appointments.",
+                options: [
+                    { text: "A. take", isCorrect: true }, { text: "B. do", isCorrect: false },
+                    { text: "C. receive", isCorrect: false }, { text: "D. join", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Việc mọi người ở Việt Nam ghi chép lại các thông tin quan trọng hoặc các cuộc hẹn là một điều rất phổ biến.",
+                    lexicon: "Cụm từ cố định (Collocation): <b>take a note of something</b> / <b>take notes</b>: ghi chép lại cái gì.",
+                    reason: "Theo quy tắc kết hợp từ bắt buộc của Anh ngữ, đi liền trước cấu trúc danh từ 'a note of...' để tạo thành nghĩa 'ghi chép lại', chúng ta chỉ có động từ duy nhất hợp chuẩn là 'take'.",
+                    wrongReason: "Do, receive, join không đi với danh từ 'a note' để mang nghĩa thực hiện hành động ghi chép."
+                }
+            },
+            {
+                id: 19, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "19. A(n) _______ family is a family consisting of two parents and their children.",
+                options: [
+                    { text: "A. essential", isCorrect: false }, { text: "B. nuclear", isCorrect: true },
+                    { text: "C. core", isCorrect: false }, { text: "D. basic", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Một gia đình hạt nhân là một gia đình chỉ bao gồm có bố mẹ và con cái họ sinh sống cùng nhau.",
+                    lexicon: "<b>nuclear family</b> (n.comp): gia đình hạt nhân (gia đình nhỏ 2 thế hệ).",
+                    reason: "Định nghĩa xã hội học 'consisting of two parents and their children' (bao gồm hai phụ huynh và các con của họ) là định nghĩa độc quyền tiêu chuẩn của thuật ngữ chuyên ngành 'nuclear family'.",
+                    wrongReason: "Essential (thiết yếu), core (cốt lõi), basic (cơ bản) không phải là thuật ngữ khoa học xã hội để đặt tên cho mô hình gia đình này."
+                }
+            },
+            {
+                id: 20, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "20. Many Vietnamese people still ______ on agriculture for their livelihoods, especially in rural areas.",
+                options: [
+                    { text: "A. rest", isCorrect: false }, { text: "B. believe", isCorrect: false },
+                    { text: "C. trust", isCorrect: false }, { text: "D. depend", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Nhiều người Việt Nam vẫn phụ thuộc vào ngành nông nghiệp để kiếm sống, đặc biệt là ở các vùng nông thôn.",
+                    lexicon: "<b>depend on</b> (v): phụ thuộc vào, dựa vào | <b>agriculture</b> (n): ngành nông nghiệp | <b>livelihoods</b> (n): sinh kế, kế sinh nhai.",
+                    reason: "Động từ 'depend' đi kèm giới từ 'on' tạo thành cụm từ 'depend on' mang nghĩa dựa vào, phụ thuộc vào cái gì để duy trì cuộc sống, hoàn toàn tương thích với việc làm nông nghiệp kiếm sinh kế ở nông thôn.",
+                    wrongReason: "Rest (nghỉ ngơi) on không hợp nghĩa; believe và trust đi trực tiếp với tân ngữ không dùng giới từ on trong ngữ cảnh này."
+                }
+            },
+            {
+                id: 21, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "21. She grew up surrounded by a large ________family.",
+                options: [
+                    { text: "A. expanded", isCorrect: false }, { text: "B. spread", isCorrect: false },
+                    { text: "C. lengthened", isCorrect: false }, { text: "D. extended", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Cô ấy đã lớn lên trong sự bao bọc bởi một đại gia đình nhiều thế hệ chung sống.",
+                    lexicon: "<b>extended family</b> (n.comp): đại gia đình (bao gồm cả ông bà, cô dì, chú bác cùng sống chung hoặc liên kết chặt chẽ).",
+                    reason: "Thuật ngữ tiếng Anh quy chuẩn dùng để chỉ mô hình gia đình lớn có nhiều thế hệ ngoài bố mẹ và con cái là cụm danh từ cố định 'extended family'.",
+                    wrongReason: "Expanded (mở rộng kích thước), spread (lan rộng), lengthened (kéo dài độ dài vật lý) không dùng để mô tả cấu trúc gia đình."
+                }
+            },
+            {
+                id: 22, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "22. After some research, we all agreed ___________ the ancient town of Hoi An for our visit.",
+                options: [
+                    { text: "A. choosing", isCorrect: false }, { text: "B. to choose", isCorrect: true },
+                    { text: "C. going", isCorrect: false }, { text: "D. to go", isCorrect: false, comment: "to go cần giới từ to Hội An nên to choose hợp cú pháp hơn" }
+                ],
+                explanation: {
+                    translation: "Sau một hồi nghiên cứu tìm hiểu, tất cả chúng tớ đã đồng ý lựa chọn phố cổ Hội An cho chuyến tham quan của mình.",
+                    lexicon: "Cấu trúc ngữ pháp: <b>agree + to-V</b> (đồng ý làm việc gì).",
+                    reason: "Động từ 'agree' bắt buộc theo sau bởi một động từ nguyên mẫu có 'to' (to-V). Loại ngay A và C. Giữa B và D, nếu chọn 'to go' thì bắt buộc phải có giới từ 'to' đi kèm vị trí phía sau thành 'go to the ancient town'. Vì đề bài không có chữ 'to' trước danh từ nên ta điền 'to choose' (lựa chọn nơi đó) là chuẩn xác cấu trúc tân ngữ trực tiếp.",
+                    wrongReason: "Choosing sai dạng danh động từ; to go thiếu giới từ kết nối địa điểm đằng sau."
+                }
+            },
+            {
+                id: 23, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "23. We must try to avoid ___________ those mistakes in the future.",
+                options: [
+                    { text: "A. repeating", isCorrect: true }, { text: "B. to make", isCorrect: false },
+                    { text: "C. correcting", isCorrect: false }, { text: "D. to find", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Chúng ta phải cố gắng né tránh việc lặp lại những sai lầm đó trong tương lai.",
+                    lexicon: "Cấu trúc ngữ pháp: <b>avoid + V-ing</b> (né tránh việc làm gì) | <b>repeating</b> (v): lặp lại.",
+                    reason: "Theo quy tắc phân loại động từ, đứng sau động từ 'avoid' bắt buộc phải là một danh động từ dạng V-ing. Loại ngay B và D. Xét về mặt ngữ nghĩa phù hợp từ đi liền với danh từ sai lầm 'those mistakes', ta chọn hành động lặp lại 'repeating' lỗi sai cũ.",
+                    wrongReason: "To make và to find sai dạng ngữ pháp to-V; correcting (sửa chữa sai lầm) mang nghĩa tích cực không cần phải lách né tránh 'avoid'."
+                }
+            },
+            {
+                id: 24, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "24. During the history lesson, our teacher suggested ___________ a quiz on the history of our school.",
+                options: [
+                    { text: "A. doing", isCorrect: true }, { text: "B. to do", isCorrect: false },
+                    { text: "C. do", isCorrect: false }, { text: "D. did", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Trong suốt tiết học lịch sử, giáo viên của chúng tớ đã đề xuất thực hiện một bài trắc nghiệm ngắn về lịch sử của trường.",
+                    lexicon: "Cấu trúc ngữ pháp: <b>suggest + V-ing</b> (gợi ý, đề xuất làm việc gì) | Cụm từ: <i>do a quiz</i> (làm bài trắc nghiệm).",
+                    reason: "Theo công thức của động từ đề xuất, khi không có mệnh đề chứa 'that', động từ đi ngay sau 'suggest' phải chia ở dạng danh động từ V-ing -> Chọn phương án 'doing'.",
+                    wrongReason: "Các hình thức động từ nguyên mẫu có to, nguyên mẫu không to hoặc quá khứ đơn đều vi phạm cấu trúc chuẩn của động từ suggest."
+                }
+            },
+            {
+                id: 25, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "25. We have ___________to visit Thanh Chuong Viet Palace.",
+                options: [
+                    { text: "A. fancied", isCorrect: false }, { text: "B. suggested", isCorrect: false },
+                    { text: "C. decided", isCorrect: true }, { text: "D. enjoyed", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Chúng tớ đã quyết định sẽ đến tham quan Phủ Thành Chương.",
+                    lexicon: "Cấu trúc ngữ pháp đi kèm: <b>decide + to-V</b> (quyết định làm gì).",
+                    reason: "Phía sau chỗ trống có từ nhận biết cấu trúc cực kỳ quan trọng là động từ nguyên mẫu có to 'to visit'. Trong số 4 động từ được đưa ra, chỉ có duy nhất động từ 'decide' chấp nhận cấu trúc 'to-V' đi đằng sau.",
+                    wrongReason: "Fancy, suggest, và enjoy đều bắt buộc phải đi kèm với một động từ chia đuôi V-ing đằng sau."
+                }
+            },
+            {
+                id: 26, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "26. My sister is going on a charity tour to Cao Bang. She ___________ to open a small library for children there.",
+                options: [
+                    { text: "A. avoids", isCorrect: false }, { text: "B. tells", isCorrect: false },
+                    { text: "C. fancies", isCorrect: false }, { text: "D. plans", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Chị gái tớ sắp đi một chuyến đi từ thiện đến Cao Bằng. Chị ấy lên kế hoạch mở một thư viện nhỏ cho trẻ em ở đó.",
+                    lexicon: "Cấu trúc ngữ pháp đi kèm: <b>plan + to-V</b> (lên kế hoạch, dự định làm gì).",
+                    reason: "Phía sau chỗ trống có từ tín hiệu 'to open' (động từ nguyên mẫu có to). Động từ 'plans' hợp nhất ngữ pháp ('plan to do something') và hoàn toàn tương thích ngữ nghĩa chuẩn bị hành trình làm từ thiện.",
+                    wrongReason: "Avoids và fancies đi với V-ing; tells cần một tân ngữ chỉ người đứng trước cấu trúc to-V (tell somebody to do something)."
+                }
+            },
+            {
+                id: 27, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "27. I was surprised that Mike ___________ participating in the Debate Contest.",
+                options: [
+                    { text: "A. planned", isCorrect: false }, { text: "B. avoided", isCorrect: true },
+                    { text: "C. persuaded", isCorrect: false }, { text: "D. tried", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Tớ đã rất ngạc nhiên khi thấy Mike tránh né việc tham gia vào Cuộc thi tranh biện.",
+                    lexicon: "<b>avoid + V-ing</b>: né tránh làm gì | <b>Debate Contest</b> (n): Cuộc thi tranh biện.",
+                    reason: "Từ đứng ngay sau vị trí trống là động từ chia đuôi V-ing 'participating'. Động từ 'avoided' hợp cấu trúc ngữ pháp ('avoid + V-ing') và tạo nên nghĩa logic bất ngờ cho người nói.",
+                    wrongReason: "Planned và tried yêu cầu đi với cấu trúc to-V; persuaded yêu cầu cấu trúc có tân ngữ chỉ người bổ trợ (persuade somebody to do something)."
+                }
+            },
+            {
+                id: 28, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "28. I don't mind _____________ late if it will help at all.",
+                options: [
+                    { text: "A. to work", isCorrect: false }, { text: "B. to be work", isCorrect: false },
+                    { text: "C. working", isCorrect: true }, { text: "D. being working", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Tớ không phiền việc phải làm việc muộn nếu điều đó có ích.",
+                    lexicon: "Cấu trúc ngữ pháp cốt lõi: <b>mind + V-ing</b> (phiền, ngại làm việc gì).",
+                    reason: "Bám sát công thức đi sau cấu trúc phủ định của động từ 'mind' bắt buộc là một danh động từ V-ing chủ động của hành động làm việc -> 'working'.",
+                    wrongReason: "A và B dùng cấu trúc dạng to-V; D dùng thừa trợ động từ tiếp diễn dạng being không phù hợp ngữ pháp câu trần thuật chủ động."
+                }
+            },
+            {
+                id: 29, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "29. I remember _____________ to the zoo when I was a child.",
+                options: [
+                    { text: "A. to take", isCorrect: false }, { text: "B. to be taken", isCorrect: false },
+                    { text: "C. taking", isCorrect: false }, { text: "D. being taken", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Tớ vẫn nhớ việc được dẫn đi chơi vườn bách thú khi tớ còn là một đứa trẻ.",
+                    lexicon: "Cấu trúc hồi tưởng: <b>remember + V-ing</b> (nhớ một sự kiện đã từng làm/xảy ra trong quá khứ) | Thể bị động dạng V-ing: <b>being + V3/ed</b>.",
+                    reason: "Mệnh đề thời gian quá khứ 'when I was a child' chứng tỏ đây là hành động hồi tưởng kỷ niệm cũ quá khứ -> động từ sau remember phải dạng V-ing. Loại A và B. Xét về mặt ngữ nghĩa, một đứa trẻ được người lớn (bố mẹ, thầy cô) dẫn đi chơi vườn thú chứ không thể tự đi -> cần chia Thể Bị Động dạng V-ing: 'being taken'.",
+                    wrongReason: "Taking mang nghĩa chủ động (tôi tự tay dẫn người khác đi vườn thú), hoàn toàn sai bản chất logic tuổi thơ của nhân vật chính."
+                }
+            },
+            {
+                id: 30, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "30. They managed _____________ over the wall without _____________.",
+                options: [
+                    { text: "A. to climb - seeing", isCorrect: false }, { text: "B. climbing - being seen", isCorrect: false },
+                    { text: "C. to climb - being seen", isCorrect: true }, { text: "D. to be climbed – seeing", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Họ đã xoay xở trèo qua được bức tường thành công mà không bị bất kỳ ai nhìn thấy.",
+                    lexicon: "<b>manage + to-V</b>: xoay xở làm được việc gì | Giới từ: <b>without + V-ing</b> (mà không làm gì) | Bị động của V-ing: <b>being + V3/ed</b>.",
+                    reason: "- Vế thứ nhất: Động từ 'manage' bắt buộc đi với to-V -> 'to climb'. Loại câu B.<br>- Vế thứ hai: Đứng sau giới từ 'without' cần một dạng động từ đuôi V-ing. Về mặt ngữ nghĩa, họ trèo tường lén lút nên mục tiêu là 'không bị người khác nhìn thấy' (mang tính bị động) -> Chia thể bị động dạng V-ing là 'being seen'. Kết hợp lại ta chọn đáp án C.",
+                    wrongReason: "Các phương án khác đảo lộn sai quy tắc chia thể chủ động/bị động của hai phân loại hành động trèo và nhìn."
+                }
+            },
+            {
+                id: 31, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "31. Do you ___________ not talking loud on the bus? It’s against the bus regulations.",
+                options: [
+                    { text: "A. try", isCorrect: false }, { text: "B. agree", isCorrect: false },
+                    { text: "C. know", isCorrect: false }, { text: "D. mind", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Bạn có phiền lòng về việc không nói chuyện lớn tiếng trên xe buýt không? Việc đó trái với quy định của xe buýt đấy.",
+                    lexicon: "<b>mind + (not) V-ing</b>: phiền, ngại làm/không làm gì | <b>regulations</b> (n): quy định, điều lệ.",
+                    reason: "Phía sau có động từ dạng phủ định danh động từ 'not talking'. Cấu trúc lịch sự nhắc nhở ai đó tuân thủ quy tắc công cộng thường dùng cấu trúc câu hỏi 'Do you mind + V-ing?' nhằm khơi gợi sự tự giác lịch thiệp.",
+                    wrongReason: "Try, agree, know đều yêu cầu đi liền với cấu trúc to-V trong ngữ cảnh đề xuất hướng dẫn hành vi trực tiếp này."
+                }
+            },
+            {
+                id: 32, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "32. Isabel expected _____________ to the university, but she wasn’t.",
+                options: [
+                    { text: "A. to admit", isCorrect: false }, { text: "B. to be admitted", isCorrect: true },
+                    { text: "C. admitting", isCorrect: false }, { text: "D. being accepted", isCorrect: false, comment: "D sai vì expect không đi với danh động từ trực tiếp" }
+                ],
+                explanation: {
+                    translation: "Isabel đã kỳ vọng được nhận vào học tại trường đại học, nhưng thực tế cô ấy đã không được nhận.",
+                    lexicon: "<b>expect + to-V</b>: kỳ vọng làm gì | Bị động của cấu trúc to-V: <b>to be + V3/ed</b> | <b>admit</b> (v): nhận vào, cho nhập học.",
+                    reason: "Động từ 'expect' bắt buộc phải kết hợp với dạng cấu trúc to-V phía sau. Loại C và D. Về mặt ngữ nghĩa, thí sinh được hội đồng nhà trường 'nhận vào học' chứ không tự nhận bản thân -> cần chia ở thể Bị Động: 'to be admitted'. Chọn B.",
+                    wrongReason: "To admit mang ý nghĩa chủ động (Isabel đứng ra nhận người khác vào học) sai lệch hoàn toàn thực tế đi thi đại học."
+                }
+            },
+            {
+                id: 33, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "33. The city council agreed _____________ the architect's proposed design for a new parking garage.",
+                options: [
+                    { text: "A. to accept", isCorrect: true }, { text: "B. to be accepted", isCorrect: false },
+                    { text: "C. accepting", isCorrect: false }, { text: "D. being accepted", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Hội đồng thành phố đã đồng ý phê duyệt/chấp thuận bản thiết kế đề xuất của kiến trúc sư về một nhà để xe mới.",
+                    lexicon: "<b>agree + to-V</b>: đồng ý làm gì | <b>proposed design</b> (n): bản thiết kế đề xuất.",
+                    reason: "Động từ 'agree' đòi hỏi cấu trúc động từ theo sau là to-V. Loại C và D. Về mặt nghĩa câu, chủ ngữ 'The city council' (Hội đồng thành phố - cơ quan quyền lực) chủ động thực hiện hành vi chấp thuận bản thiết kế của người khác -> chia thể Chủ Động 'to accept'.",
+                    wrongReason: "To be accepted đưa câu về dạng bị động (Hội đồng thành phố bị bản thiết kế chấp thuận) sai logic nghiêm trọng."
+                }
+            },
+            {
+                id: 34, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "34. The tin opener seems _____________ for left-handed people.",
+                options: [
+                    { text: "A. to design", isCorrect: false }, { text: "B. to be designed", isCorrect: true },
+                    { text: "C. designing", isCorrect: false }, { text: "D. being designed", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Cái đồ khui đồ hộp này dường như được thiết kế chuyên biệt dành cho những người thuận tay trái.",
+                    lexicon: "<b>seem + to-V</b>: dường như, có vẻ như làm sao | <b>tin opener</b> (n): cái mở đồ hộp | <b>left-handed</b> (adj): thuận tay trái.",
+                    reason: "Động từ liên kết 'seem' đi với cấu trúc bổ trợ dạng to-V. Loại C và D. Vật thể vô tri 'The tin opener' (cái mở đồ hộp) không thể tự thực hiện hành vi thiết kế mà phải 'được thiết kế' bởi con người -> bắt buộc chia dạng Bị Động: 'to be designed'. Chọn B.",
+                    wrongReason: "To design mang nghĩa chủ động khiến vật vô tri tự đi thiết kế bản thân, hoàn toàn bất hợp lý."
+                }
+            },
+            {
+                id: 35, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "35. My parents appreciate _____________ the thank-you note you sent them.",
+                options: [
+                    { text: "A. to receive", isCorrect: false }, { text: "B. to be received", isCorrect: false },
+                    { text: "C. receiving", isCorrect: true }, { text: "D. being received", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Bố mẹ tớ rất trân trọng/biết ơn việc nhận được bức thư cảm ơn mà cậu đã gửi cho họ.",
+                    lexicon: "<b>appreciate + V-ing</b>: trân trọng, biết ơn sâu sắc việc làm gì | <b>thank-you note</b> (n): thư cảm ơn ngắn.",
+                    reason: "Theo quy tắc phân loại động từ, đứng ngay sau động từ 'appreciate' phải là danh động từ V-ing. Loại A và B. Chủ ngữ 'My parents' chủ động đón nhận bức thư do bạn gửi đến -> chia dạng Chủ Động là 'receiving'.",
+                    wrongReason: "Dạng cấu trúc to-V không đi sau động từ appreciate; dạng being received đưa về bị động sai nghĩa giao tiếp."
+                }
+            },
+            {
+                id: 36, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "36. When the police first questioned him, Wayne denied _____________ in the robbery.",
+                options: [
+                    { text: "A. to involve", isCorrect: false }, { text: "B. to be involved", isCorrect: false },
+                    { text: "C. involving", isCorrect: false }, { text: "D. being involved", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Khi cảnh sát lần đầu tiên thẩm vấn anh ta, Wayne đã phủ nhận việc có liên can/dính líu vào vụ cướp.",
+                    lexicon: "<b>deny + V-ing</b>: phủ nhận làm việc gì | Cụm tính từ/động từ dạng bị động: <b>be involved in something</b> (có liên can, dính líu vào việc gì).",
+                    reason: "Động từ 'deny' bắt buộc đi liền với đuôi V-ing đằng sau. Loại A và B. Để diễn tả việc bản thân dính líu, ta luôn dùng cấu trúc bị động 'be involved in' -> đưa về dạng danh động từ bị động tương ứng là 'being involved'. Do đó phương án D chính xác tuyệt đối.",
+                    wrongReason: "Involving dạng chủ động thiếu tân ngữ đi kèm phía sau để tạo nghĩa thích hợp theo quy chuẩn từ vựng."
+                }
+            },
+            {
+                id: 37, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "37. Many reliable methods of storing information tended _____________ when computers arrived.",
+                options: [
+                    { text: "A. to forget", isCorrect: false }, { text: "B. to be forgotten", isCorrect: true },
+                    { text: "C. forgetting", isCorrect: false }, { text: "D. being forgotten", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Nhiều phương pháp lưu trữ thông tin đáng tin cậy ngày xưa có xu hướng bị lãng quên khi máy tính xuất hiện.",
+                    lexicon: "<b>tend + to-V</b>: có xu hướng, thường có khuynh hướng làm gì | <b>storing information</b>: lưu trữ thông tin.",
+                    reason: "Động từ 'tend' bắt buộc đi kèm cấu trúc động từ bổ trợ dạng to-V. Loại C và D. Chủ ngữ chính ở đây là 'Many reliable methods' (Nhiều phương pháp - vật vô tri) không thể tự quên mà phải 'bị con người lãng quên' -> chia thể Bị Động hệ to-V: 'to be forgotten'.",
+                    wrongReason: "To forget mang nghĩa chủ động khiến các phương pháp lưu trữ tự có bộ não để đi quên lãng thứ khác."
+                }
+            },
+            {
+                id: 38, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "38. The police warned everybody _____________ inside with their windows closed.",
+                options: [
+                    { text: "A. to stay", isCorrect: true }, { text: "B. to be stayed", isCorrect: false },
+                    { text: "C. staying", isCorrect: false }, { text: "D. being stayed", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Cảnh sát đã cảnh báo mọi người nên ở yên bên trong nhà và đóng chặt các cửa sổ lại.",
+                    lexicon: "Cấu trúc: <b>warn và tân ngữ: warn somebody + to-V</b> (cảnh báo ai nên làm việc gì).",
+                    reason: "Áp dụng cấu trúc tác động hành vi phổ biến của động từ cảnh báo 'warn + O + to-V'. Hành động ở yên bên trong nhà ('stay inside') là hành động mang tính chủ động tự thân của con người -> chọn thể Chủ Động 'to stay'.",
+                    wrongReason: "Các phương án chứa đuôi V-ing hoặc bị động 'to be stayed' đều sai lệch cấu trúc ngữ pháp và bản chất hành động nội động từ 'stay'."
+                }
+            },
+            {
+                id: 39, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "39. She resented _____________ to make tea for everyone at the meeting.",
+                options: [
+                    { text: "A. to ask", isCorrect: false }, { text: "B. to be asked", isCorrect: false },
+                    { text: "C. asking", isCorrect: false }, { text: "D. being asked", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Cô ấy bực bội/phẫn nộ vì bị yêu cầu phải pha trà cho tất cả mọi người tại cuộc họp.",
+                    lexicon: "<b>resent + V-ing</b>: bực bội, tức giận, không cam tâm về việc gì | Bị động của V-ing: <b>being + V3/ed</b>.",
+                    reason: "Động từ 'resent' bắt buộc cấu trúc động từ đi kèm sau phải là V-ing. Loại A và B. Xét về ngữ cảnh nội dung họp hành, cô ấy bực mình vì 'bị người khác sai bảo, bị yêu cầu' pha trà hầu hạ người khác -> cần thể Bị Động: 'being asked'. Chọn D.",
+                    wrongReason: "Asking mang nghĩa chủ động (cô ấy đi đòi hỏi người khác pha trà cho mình) thì hoàn toàn mâu thuẫn với sắc thái tức giận resents."
+                }
+            },
+            {
+                id: 40, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "40. Let's leave early. We can't risk _____________ in heavy traffic during rush hour.",
+                options: [
+                    { text: "A. to hold up", isCorrect: false }, { text: "B. to be held up", isCorrect: false },
+                    { text: "C. holding up", isCorrect: false }, { text: "D. being held up", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Chúng ta hãy rời đi sớm thôi. Chúng ta không thể mạo hiểm chịu rủi ro bị tắc nghẽn giao thông trong suốt giờ cao điểm được.",
+                    lexicon: "<b>risk + V-ing</b>: mạo hiểm chịu rủi ro làm gì | Cụm động từ bị động: <b>be held up</b> (bị giữ lại, bị kẹt xe đứng im) | <b>rush hour</b> (n): giờ cao điểm.",
+                    reason: "Động từ 'risk' bắt buộc đi kèm sau bởi danh động từ V-ing. Loại A và B. Người tham gia giao thông 'bị kẹt, bị giữ lại đứng im' do lưu lượng xe cộ đông đúc (mang bản chất bị động khách quan) -> dùng thể bị động dạng V-ing: 'being held up'. Chọn D.",
+                    wrongReason: "Holding up mang nghĩa chủ động (chúng ta đi chặn đường, trấn lột xe cộ người khác) hoàn toàn sai lệch ý nghĩa tránh tắc đường."
+                }
+            },
+            {
+                id: 41, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "41. After their children had grown up, they decided _____________ to a condominium in the city.",
+                options: [
+                    { text: "A. to move", isCorrect: true }, { text: "B. to be moved", isCorrect: false },
+                    { text: "C. moving", isCorrect: false }, { text: "D. being moved", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Sau khi con cái của họ khôn lớn trưởng thành, họ đã quyết định chuyển nhà đến một căn hộ chung cư ở thành phố.",
+                    lexicon: "<b>decide + to-V</b>: quyết định làm việc gì | <b>condominium</b> (n): căn hộ chung cư cao cấp.",
+                    reason: "Động từ quyết định 'decide' bắt buộc đi liền cấu trúc to-V phía sau. Loại C và D. Việc di chuyển dời nhà cửa ('move') là hành động tự thân chủ động thực hiện của hai vợ chồng phụ huynh -> chọn dạng Chủ Động 'to move'.",
+                    wrongReason: "To be moved mang nghĩa bị động (họ bị người khác khuân vác di dời đi cưỡng chế) không hợp lý bối cảnh."
+                }
+            },
+            {
+                id: 42, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "42. The new students hope _____________ in many of the school's social activities.",
+                options: [
+                    { text: "A. to include", isCorrect: false }, { text: "B. to be included", isCorrect: true },
+                    { text: "C. including", isCorrect: false }, { text: "D. being included", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Những học sinh mới hy vọng được bao gồm/được kết nạp tham gia vào nhiều hoạt động xã hội của nhà trường.",
+                    lexicon: "<b>hope + to-V</b>: hy vọng đạt được điều gì | <b>include</b> (v): bao gồm, kết nạp, tính cả vào.",
+                    reason: "Động từ hy vọng 'hope' yêu cầu cấu trúc bổ trợ dạng to-V đằng sau. Loại C và D. Các học sinh mới chuyển đến mong muốn 'được mọi người kết nạp, tính gộp chân vào' làm thành viên của tập thể hoạt động (mang sắc thái bị động được chào đón) -> dùng cấu trúc Bị Động: 'to be included'. Chọn B.",
+                    wrongReason: "To include mang nghĩa chủ động đòi hỏi phải có tân ngữ vật thể đứng sau (ví dụ: mong muốn bao gồm cái gì) nên đứng trơ trọi là sai ngữ pháp."
+                }
+            },
+            {
+                id: 43, section: "Exercise 1: Mark the letter A, B, C, or D to indicate the correct answer.", isGrid: true,
+                question: "43. Does John mind _____________ at home if his patients need his help?",
+                options: [
+                    { text: "A. to call", isCorrect: false }, { text: "B. to be called", isCorrect: false },
+                    { text: "C. calling", isCorrect: false }, { text: "D. being called", isCorrect: true, comment: "Đề gốc in nhầm chữ asked ở đáp án D, sửa thành từ gốc chuẩn để khớp cấu trúc là called" }
+                ],
+                explanation: {
+                    translation: "John có phiền lòng về việc bị gọi điện gọi đến nhà riêng nếu bệnh nhân của anh ấy cần sự giúp đỡ không?",
+                    lexicon: "<b>mind + V-ing</b>: phiền làm gì | <b>patients</b> (n): các bệnh nhân | Bị động của V-ing: <b>being + V3/ed</b>.",
+                    reason: "Động từ 'mind' bắt buộc theo sau bởi danh động từ đuôi V-ing. Loại A và B. Xét về mặt công việc bác sĩ, John 'bị bệnh nhân gọi điện réo tên, yêu cầu triệu tập gấp' (hành vi bị động nhận cuộc gọi từ người bệnh) -> dùng thể Bị Động dạng V-ing: 'being called'. Do đó câu D chính xác.",
+                    wrongReason: "Calling ở thể chủ động mang nghĩa bác sĩ tự dưng đi gọi điện thoại cho chính mình tại nhà, hoàn toàn vô lý."
+                }
+            },
+
+            // --- EXERCISE 2 ---
+            {
+                id: 44, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "1. My cousin doesn’t want ________ the Tet celebrations this year.",
+                options: [
+                    { text: "missing (V-ing)", isCorrect: false },
+                    { text: "to miss (to-V)", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Anh em họ của tớ không muốn bỏ lỡ các hoạt động ăn mừng lễ Tết năm nay.",
+                    lexicon: "Cấu trúc ngữ pháp độc quyền: <b>want + to-V</b> (muốn làm việc gì). Bỏ lỡ: <i>miss</i>.",
+                    reason: "Theo bảng phân loại cấu trúc động từ cốt lõi, động từ 'want' luôn luôn bắt buộc phải đi kèm với một động từ nguyên mẫu có to (to-V) đằng sau.",
+                    wrongReason: "Sử dụng dạng danh động từ 'missing' đứng sau động từ want là hoàn toàn sai cú pháp."
+                }
+            },
+            {
+                id: 45, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "2. In the past, children were encouraged ________ their parents in the fields.",
+                options: [
+                    { text: "to help (to-V)", isCorrect: true },
+                    { text: "helping (V-ing)", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Trong quá khứ, trẻ em được khuyến khích giúp đỡ cha mẹ của chúng làm việc trên đồng ruộng.",
+                    lexicon: "Cấu trúc bị động tác động hành vi: <b>be encouraged + to-V</b> (được khuyến khích làm gì).",
+                    reason: "Dạng chủ động là <i>encourage somebody to do something</i>. Khi chuyển sang thể bị động, cấu trúc nguyên mẫu có to vẫn được giữ nguyên không đổi: <i>be encouraged + to-V</i>.",
+                    wrongReason: "Dạng đuôi V-ing 'helping' vi phạm quy tắc hệ thống bổ ngữ của động từ encourage."
+                }
+            },
+            {
+                id: 46, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "3. Today, with busy schedules, some families are forced ________ their meals.",
+                options: [
+                    { text: "rushing (V-ing)", isCorrect: false },
+                    { text: "to rush (to-V)", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Ngày nay, với lịch trình bận rộn, một số gia đình bị buộc phải ăn uống một cách vội vã qua loa.",
+                    lexicon: "Cấu trúc ép buộc dạng bị động: <b>be forced + to-V</b> (bị ép buộc, cưỡng ép làm việc gì) | <b>rush meals</b>: ăn vội vã.",
+                    reason: "Động từ chỉ sự ép buộc 'force' tuân theo công thức tác động nhân quả: <i>force somebody to do something</i>. Do đó dạng bị động của nó luôn đi trực tiếp với cấu trúc 'to-V'.",
+                    wrongReason: "Rushing đuôi -ing không nằm trong công thức tương tác của động từ này."
+                }
+            },
+            {
+                id: 47, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "4. My grandmother let me ________ a bicycle when I was a child.",
+                options: [
+                    { text: "to ride (to-V)", isCorrect: false },
+                    { text: "ride (Bare infinitive)", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Bà ngoại đã cho phép tớ tự đạp xe đạp khi tớ còn là một đứa trẻ.",
+                    lexicon: "Cấu trúc cho phép đặc biệt: <b>let + O + V (nguyên mẫu không to / Bare infinitive)</b>: cho phép ai làm gì.",
+                    reason: "Động từ sai khiến/cho phép 'let' là một trường hợp đặc biệt bắt buộc động từ hành động phía sau tân ngữ phải giữ nguyên mẫu trần trụi, tuyệt đối không được có 'to'.",
+                    wrongReason: "Điền 'to ride' là lỗi sai nghiêm trọng kinh điển khi quên quy tắc đặc biệt của nhóm từ Let / Make."
+                }
+            },
+            {
+                id: 48, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "5. My pen pal decided ________ Vietnamese before moving to Hanoi.",
+                options: [
+                    { text: "learning (V-ing)", isCorrect: false },
+                    { text: "to learn (to-V)", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Bạn qua thư của tớ đã quyết định học tiếng Việt trước khi chuyển đến sinh sống ở Hà Nội.",
+                    lexicon: "Cấu trúc quyết định: <b>decide + to-V</b> (quyết định thực hiện việc gì) | <b>pen pal</b> (n): bạn qua thư.",
+                    reason: "Động từ đưa ra lựa chọn quyết định 'decide' nằm trong nhóm từ bắt buộc bổ ngữ phía sau là động từ nguyên mẫu có to.",
+                    wrongReason: "Learning đuôi -ing sai cấu trúc kết hợp động từ căn bản."
+                }
+            },
+            {
+                id: 49, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "6. Many Vietnamese people still enjoy ________ traditional clothing on special occasions.",
+                options: [
+                    { text: "wearing (V-ing)", isCorrect: true },
+                    { text: "to wear (to-V)", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Nhiều người Việt Nam vẫn yêu thích việc mặc trang phục truyền thống vào các dịp lễ đặc biệt.",
+                    lexicon: "Cấu trúc sở thích: <b>enjoy + V-ing</b> (yêu thích, tận hưởng việc làm gì).",
+                    reason: "Động từ chỉ trạng thái cảm xúc yêu thích 'enjoy' luôn luôn yêu cầu một danh động từ chia đuôi -ing đi liền phía sau làm tân ngữ.",
+                    wrongReason: "To wear vi phạm quy tắc bất di bất dịch của cấu trúc động từ sau chữ enjoy."
+                }
+            },
+            {
+                id: 50, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "7. I never forget ________ that beautiful temple, and I’ll visit it again someday.",
+                options: [
+                    { text: "visiting (V-ing)", isCorrect: true },
+                    { text: "to visit (to-V)", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Tớ không bao giờ quên việc đã từng ghé thăm ngôi đền tuyệt đẹp đó, và tớ sẽ quay lại đó thăm vào một ngày nào đó.",
+                    lexicon: "Cấu trúc bộ nhớ: <b>forget + V-ing</b> (quên một việc đã xảy ra trong quá khứ) | <b>forget + to-V</b> (quên phải làm việc gì ở hiện tại/tương lai).",
+                    reason: "Mệnh đề sau khẳng định 'and I'll visit it again' (và tớ sẽ quay lại đó) chứng tỏ hành động đi thăm đền này nhân vật đã thực hiện thành công trong quá khứ và giờ đang giữ làm kỷ niệm -> diễn tả việc đã xảy ra phải chọn đuôi V-ing 'visiting'.",
+                    wrongReason: "To visit mang nghĩa nhắc nhở bổn phận tương lai (quên mất việc phải đi thắp hương/thăm đền), hoàn toàn sai ý hoài niệm của câu này."
+                }
+            },
+            {
+                id: 51, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "8. Nowadays, some young people don’t mind ________ time with their extended families.",
+                options: [
+                    { text: "to spend (to-V)", isCorrect: false },
+                    { text: "spending (V-ing)", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Ngày nay, một số người trẻ tuổi không phiền lòng về việc dành thời gian ở bên đại gia đình nhiều thế hệ của họ.",
+                    lexicon: "Cấu trúc: <b>mind + V-ing</b> (ngại, phiền lòng làm việc gì).",
+                    reason: "Động từ 'mind' trong câu phủ định 'don't mind' bắt buộc phải kết hợp với hình thái danh động từ dạng V-ing đứng sau.",
+                    wrongReason: "To spend là lỗi sai công thức cấu trúc vận hành của động từ mind."
+                }
+            },
+            {
+                id: 52, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "9. Vietnamese parents always want to make their children ________ their elders.",
+                options: [
+                    { text: "respect (Bare infinitive)", isCorrect: true },
+                    { text: "respecting (V-ing)", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Cha mẹ Việt Nam luôn luôn muốn rèn dũa, khiến cho con cái của họ phải biết kính trọng người lớn tuổi.",
+                    lexicon: "Cấu trúc cầu khiến: <b>make + somebody + V (nguyên mẫu không to / Bare)</b>: bắt ai, khiến ai phải làm gì.",
+                    reason: "Động từ hệ nhân quả cầu khiến 'make' khi đi với tân ngữ chỉ người 'their children' đòi hỏi động từ hành động kề sau phải ở dạng nguyên mẫu trần trụi hoàn toàn.",
+                    wrongReason: "Respecting đuôi -ing sai quy tắc ngữ pháp của cấu trúc động từ hệ cầu khiến Make."
+                }
+            },
+            {
+                id: 53, section: "Exercise 2: Circle the correct option in brackets.", isGrid: false,
+                question: "10. In the past, most families in Vietnam preferred ________ meals together at home.",
+                options: [
+                    { text: "to cook (to-V)", isCorrect: false },
+                    { text: "cooking (V-ing)", isCorrect: true, comment: "Dạng tổng quan thói quen lịch sử ưu tiên dùng V-ing tương thích đáp án chuẩn" }
+                ],
+                explanation: {
+                    translation: "Trong quá khứ, hầu hết các gia đình ở Việt Nam thích việc nấu nướng các bữa ăn cùng nhau ở nhà hơn.",
+                    lexicon: "Cấu trúc sở thích ưu tiên: <b>prefer + V-ing</b> (thích làm việc gì hơn như một thói quen chung tổng thể).",
+                    reason: "Mặc dù prefer có thể đi với cả hai, nhưng khi mô tả một thói quen lối sống lâu dài kéo dài mang tính chất tập tục lịch sử xã hội cũ ('In the past... thói quen nấu nướng gia đình'), dạng danh động từ V-ing 'cooking' phản ánh sắc thái thói quen sinh hoạt mượt mà nhất.",
+                    wrongReason: "To cook thường dùng cho lựa chọn mang tính tình huống đơn lẻ cụ thể hơn."
+                }
+            },
+
+            // --- EXERCISE 5 (CLOSEST) ---
+            {
+                id: 54, section: "Exercise 5: Word(s) CLOSEST in meaning to the underlined word(s).", isGrid: true,
+                question: "1. My grandmother spent her childhood in <u>various</u> parts of Viet Nam.",
+                options: [
+                    { text: "A. similar", isCorrect: false }, { text: "B. different", isCorrect: true },
+                    { text: "C. difficult", isCorrect: false }, { text: "D. same", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Bà của tớ đã trải qua tuổi thơ ở nhiều vùng miền khác nhau trên khắp Việt Nam.",
+                    lexicon: "<b>various</b> (adj): đa dạng, nhiều kiểu khác nhau = <b>different</b> (adj): khác nhau, phong phú.",
+                    reason: "Từ 'various' chỉ số lượng nhiều và có sự phong phú, khác biệt giữa các địa điểm, tương đồng hoàn toàn về mặt nghĩa với tính từ 'different'.",
+                    wrongReason: "Similar (tương tự), difficult (khó khăn), same (giống hệt) đều mang nét nghĩa lệch trục hoàn toàn."
+                }
+            },
+            {
+                id: 55, section: "Exercise 5: Word(s) CLOSEST in meaning to the underlined word(s).", isGrid: true,
+                question: "2. I <u>took notes</u> in my notebook of the talk on the history of the drums.",
+                options: [
+                    { text: "A. liked", isCorrect: false }, { text: "B. learned", isCorrect: false },
+                    { text: "C. understood", isCorrect: false }, { text: "D. wrote down", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Tớ đã ghi chép vào trong vở về buổi trò chuyện nói về lịch sử của những chiếc trống.",
+                    lexicon: "<b>take notes</b> (v.phr): ghi chép lại thông tin = <b>write down</b> (v.phr): viết lại, hạ bút ghi lại.",
+                    reason: "Hành động lấy bút viết lại thông tin nghe được để lưu trữ chính là bản chất của cụm từ 'took notes', đồng nghĩa chuẩn xác với cụm từ 'wrote down'.",
+                    wrongReason: "Liked (thích), learned (học), understood (hiểu) có thể là trạng thái tâm lý đi kèm nhưng không phải là hành động vật lý viết chữ xuống giấy."
+                }
+            },
+            {
+                id: 56, section: "Exercise 5: Word(s) CLOSEST in meaning to the underlined word(s).", isGrid: true,
+                question: "3. Children now have fewer <u>opportunities</u> to learn about nature than their peers in the past.",
+                options: [
+                    { text: "A. chances", isCorrect: true }, { text: "B. time", isCorrect: false },
+                    { text: "C. interests", isCorrect: false }, { text: "D. tools", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Trẻ em ngày nay có ít cơ hội để tìm hiểu về thiên nhiên hơn so với các bạn đồng trang lứa trong quá khứ.",
+                    lexicon: "<b>opportunity</b> (n): cơ hội, dịp may = <b>chance</b> (n): cơ hội, khả năng xảy ra điều tốt.",
+                    reason: "Từ 'opportunities' chỉ các điều kiện thuận lợi, thời cơ mở ra giúp ích cho con người làm việc gì, đồng nghĩa hoàn toàn với từ số nhiều 'chances'.",
+                    wrongReason: "Time (thời gian), interests (sở thích), tools (công cụ) không tương thích đồng nghĩa với định nghĩa của từ cơ hội."
+                }
+            },
+            {
+                id: 57, section: "Exercise 5: Word(s) CLOSEST in meaning to the underlined word(s).", isGrid: true,
+                question: "4. Students now do not <u>depend</u> as much on textbooks as they used to.",
+                options: [
+                    { text: "A. want", isCorrect: false }, { text: "B. rely wholly", isCorrect: true },
+                    { text: "C. appreciate", isCorrect: false }, { text: "D. ask for", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Học sinh ngày nay không còn phụ thuộc quá nhiều vào sách giáo khoa như thế hệ ngày xưa nữa.",
+                    lexicon: "<b>depend (on)</b> (v): dựa dẫm, phụ thuộc vào = <b>rely (on)</b> (v): tin cậy, dựa dẫm hoàn toàn vào.",
+                    reason: "Hành vi không tự lập mà phải tựa vào, dùng một nguồn lực có sẵn làm gốc cứu cánh duy nhất là định nghĩa của phụ thuộc, sát nghĩa nhất với cụm từ 'rely wholly' (dựa dẫm hoàn toàn).",
+                    wrongReason: "Want (muốn), appreciate (trân trọng), ask for (đòi hỏi) không phản ánh được tính chất nương tựa phụ thuộc."
+                }
+            },
+            {
+                id: 58, section: "Exercise 5: Word(s) CLOSEST in meaning to the underlined word(s).", isGrid: true,
+                question: "5. People now can entertain from <u>various</u> sources like TVs, computers, smartphones, entertainment centres.",
+                options: [
+                    { text: "A. rare", isCorrect: false }, { text: "B. few", isCorrect: false },
+                    { text: "C. interesting", isCorrect: false }, { text: "D. many", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Mọi người bây giờ có thể giải trí từ nhiều nguồn phong phú khác nhau như tivi, máy tính, điện thoại thông minh và các trung tâm giải trí.",
+                    lexicon: "<b>various</b> (adj): đa dạng, nhiều loại khác nhau kéo theo số lượng lớn = <b>many</b> (adj): nhiều, phong phú.",
+                    reason: "Khi liệt kê một loạt các thiết bị 'TVs, computers, smartphones...', tính từ 'various' ám chỉ số lượng phong phú, nhiều nguồn khác nhau, đồng nghĩa sát nhất về mặt định lượng với từ 'many'.",
+                    wrongReason: "Rare (hiếm), few (ít ỏi) trái nghĩa; interesting (thú vị) chỉ tính chất cảm xúc chứ không chỉ số lượng phong phú đa dạng nguồn."
+                }
+            },
+
+            // --- EXERCISE 6 (OPPOSITE) ---
+            {
+                id: 59, section: "Exercise 6: Word(s) OPPOSITE in meaning to the underlined word(s).", isGrid: true,
+                question: "1. Our school offers <u>various</u> extracurricular activities, including sports, music, and art.",
+                options: [
+                    { text: "A. restricted", isCorrect: true }, { text: "B. dependent", isCorrect: false },
+                    { text: "C. astonished", isCorrect: false }, { text: "D. democratic", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Trường học của chúng tôi cung cấp nhiều hoạt động ngoại khóa đa dạng khác nhau, bao gồm thể thao, âm nhạc và nghệ thuật.",
+                    lexicon: "Tìm từ TRÁI NGHĨA. <b>various</b> (adj): đa dạng, phong phú, mở rộng >< <b>restricted</b> (adj): bị giới hạn, bị bó hẹp, hạn chế.",
+                    reason: "Từ 'various' chỉ sự đa dạng, không giới hạn, muôn màu muôn vẻ. Từ mang nghĩa đối lập, trái ngược hoàn toàn là 'restricted' (bị thu hẹp, giới hạn trong phạm vi nhỏ nghèo nàn).",
+                    wrongReason: "Dependent (phụ thuộc), astonished (kinh ngạc), democratic (dân chủ) không nằm trên trục đối lập của khái niệm đa dạng/bó hẹp."
+                }
+            },
+            {
+                id: 60, section: "Exercise 6: Word(s) OPPOSITE in meaning to the underlined word(s).", isGrid: true,
+                question: "2. Many Vietnamese families now enjoy the <u>convenience</u> of modern appliances in their kitchens.",
+                options: [
+                    { text: "A. extended", isCorrect: false }, { text: "B. astonished", isCorrect: false },
+                    { text: "C. outdated", isCorrect: true }, { text: "D. family-oriented", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Nhiều gia đình Việt Nam hiện nay được tận hưởng sự tiện lợi của các thiết bị hiện đại bên trong căn bếp của họ.",
+                    lexicon: "Tìm từ TRÁI NGHĨA. Từ gốc nhấn mạnh tính đồng bộ đi kèm: <u>modern appliances</u> (thiết bị hiện đại mang lại sự tiện lợi) >< <b>outdated</b> (adj): lỗi thời, lạc hậu, cổ lỗ sĩ gây phiền toái bất tiện.",
+                    reason: "Bối cảnh câu nhấn mạnh tính từ 'convenience' đi kèm hệ thống đồ dùng công nghệ cao hiện đại. Xét trục ý nghĩa đối lập của hệ sinh thái tiện ích công nghệ, từ 'outdated' (cũ kỹ, lạc hậu, lỗi thời) tạo nên thế tương phản hoàn hảo nhất.",
+                    wrongReason: "Các từ khác không chỉ đặc tính công nghệ hay tính tiện dụng của đồ vật đời sống."
+                }
+            },
+            {
+                id: 61, section: "Exercise 6: Word(s) OPPOSITE in meaning to the underlined word(s).", isGrid: true,
+                question: "3. A(n) <u>nuclear family</u> or elementary family, is a family group consisting of two parents and their children.",
+                options: [
+                    { text: "A. replaceable", isCorrect: false }, { text: "B. democratic", isCorrect: false },
+                    { text: "C. annoyed", isCorrect: false }, { text: "D. extended", isCorrect: true }
+                ],
+                explanation: {
+                    translation: "Một gia đình hạt nhân là một nhóm gia đình chỉ bao gồm có hai phụ huynh và con cái của họ.",
+                    lexicon: "Tìm từ TRÁI NGHĨA. <b>nuclear family</b> (n): gia đình nhỏ hạt nhân (2 thế hệ) >< <b>extended family</b> (n): đại gia đình nhiều thế hệ chung sống.",
+                    reason: "Trong khoa học xã hội học và nhân chủng học, mô hình đối lập trực tiếp hoàn toàn mang tính tương phản kinh điển với gia đình nhỏ 2 thế hệ (nuclear) chính là mô hình đại gia đình lớn nhiều thế hệ (extended).",
+                    wrongReason: "Replaceable (có thể thay thế), democratic (dân chủ), annoyed (bực mình) hoàn toàn lạc đề ngữ cảnh gia đình."
+                }
+            },
+            {
+                id: 62, section: "Exercise 6: Word(s) OPPOSITE in meaning to the underlined word(s).", isGrid: true,
+                question: "4. With a growing economy, more Vietnamese families are able to <u>pursue</u> a comfortable lifestyle.",
+                options: [
+                    { text: "A. give up", isCorrect: true }, { text: "B. promise", isCorrect: false },
+                    { text: "C. memorise", isCorrect: false }, { text: "D. dye", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Với một nền kinh tế đang trên đà tăng trưởng, ngày càng có nhiều gia đình Việt Nam có khả năng theo đuổi một lối sống thoải mái tiện nghi.",
+                    lexicon: "Tìm từ TRÁI NGHĨA. <b>pursue</b> (v): theo đuổi, cố gắng đạt được mục tiêu >< <b>give up</b> (v.phr): từ bỏ, buông xuôi không theo nữa.",
+                    reason: "Hành động 'pursue' nghĩa là chạy theo vững chí tiến lên để đạt lấy cái đích mong muốn. Hành động trái ngược hoàn toàn là đầu hàng, từ bỏ nửa chừng -> cụm động từ 'give up'.",
+                    wrongReason: "Promise (hứa), memorise (ghi nhớ), dye (nhuộm) không mang ý nghĩa hành động tương phản trên trục nỗ lực."
+                }
+            },
+            {
+                id: 63, section: "Exercise 6: Word(s) OPPOSITE in meaning to the underlined word(s).", isGrid: true,
+                question: "5. Technology allows us to connect with friends and family easily, but it can also be a challenge to maintain <u>privacy</u> online.",
+                options: [
+                    { text: "A. nuclear family", isCorrect: false }, { text: "B. publicity", isCorrect: true },
+                    { text: "C. dependence", isCorrect: false }, { text: "D. lifestyle", isCorrect: false }
+                ],
+                explanation: {
+                    translation: "Công nghệ cho phép chúng ta kết nối với bạn bè và gia đình một cách dễ dàng, tuy nhiên nó cũng có thể là một thử thách để duy trì sự riêng tư trên không gian mạng.",
+                    lexicon: "Tìm từ TRÁI NGHĨA. <b>privacy</b> (n): sự riêng tư, bí mật kín đáo >< <b>publicity</b> (n): sự công khai trước bàn dân thiên hạ, sự công chúng biết đến rộng rãi.",
+                    reason: "Khái niệm 'privacy' chỉ việc giữ thông tin cho riêng mình kín đáo không ai biết. Từ đối lập hoàn toàn là việc phơi bày công khai ra thế giới đại chúng ai cũng thấy -> danh từ 'publicity'.",
+                    wrongReason: "Gia đình hạt nhân (nuclear family), sự phụ thuộc (dependence), hay phong cách sống (lifestyle) không đối lập với nghĩa riêng tư kín đáo."
+                }
+            }
+        ];
+
+        // --- KHỞI TẠO VÀ ĐỔ DỮ LIỆU CARD TỰ ĐỘNG LÊN GIAO DIỆN ---
+        const container = document.getElementById('quiz-container');
+        let currentSectionName = "";
+
+        // Hàm xáo trộn đáp án ngẫu nhiên để tăng tính kích thích tư duy độc lập của học sinh
+        function shuffleOptions(options) {
+            let shuffled = [...options];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        quizData.forEach((q, index) => {
+            // Kiểm tra đổ tiêu đề phân khu bài tập
+            if (q.section !== currentSectionName) {
+                currentSectionName = q.section;
+                const secTitle = document.createElement('div');
+                secTitle.className = 'section-title';
+                secTitle.innerText = currentSectionName;
+                container.appendChild(secTitle);
+            }
+
+            const card = document.createElement('div');
+            card.className = 'quiz-card';
+            card.id = `card-${q.id}`;
+
+            const shuffledOpts = shuffleOptions(q.options);
+            let optionsHtml = '';
+            
+            // Phân bổ Class Grid layout cho câu ngắn gọn để scannable giao diện đẹp mắt
+            const layoutClass = q.isGrid ? 'options-container grid-layout' : 'options-container';
+
+            shuffledOpts.forEach(opt => {
+                optionsHtml += `<button class="option-btn" data-correct="${opt.isCorrect}" onclick="selectOption(this, ${q.id})">${opt.text}</button>`;
+            });
+
+            card.innerHTML = `
+                <div class="question-text">${q.question}</div>
+                <div class="${layoutClass}">${optionsHtml}</div>
+                <div class="explanation-box" id="exp-${q.id}">
+                    <div class="exp-section"><div class="exp-title">🌟 Dịch nghĩa văn cảnh trọn vẹn:</div><div class="exp-text">${q.explanation.translation}</div></div>
+                    ${q.explanation.lexicon ? `<div class="exp-section"><div class="exp-title">💎 Tra cứu từ vựng cốt lõi:</div><div class="exp-text">${q.explanation.lexicon}</div></div>` : ''}
+                    <div class="exp-section"><div class="exp-title">✅ Phân tích bản chất lý do chọn:</div><div class="exp-text"><span class="exp-highlight">${q.explanation.reason}</span></div></div>
+                    <div class="exp-section"><div class="exp-title">❌ Tại sao phương án khác sai?</div><div class="exp-text">${q.explanation.wrongReason}</div></div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // --- XỬ LÝ SỰ KIỆN KHI BẤM CHỌN ĐÁP ÁN ---
+        function selectOption(btn, qId) {
+            const card = document.getElementById(`card-${qId}`);
+            if (card.getAttribute('data-answered') === 'true') return; // Chặn bấm lại câu đã giải
+
+            const buttons = card.querySelectorAll('.option-btn');
+            const isCorrect = btn.getAttribute('data-correct') === 'true';
+
+            // Khóa tương tác tất cả nút và hiển thị màu đáp án đúng chuẩn ngay lập tức
+            buttons.forEach(b => {
+                b.classList.add('disabled');
+                if (b.getAttribute('data-correct') === 'true') {
+                    b.classList.add('correct');
+                }
+            });
+
+            // Nếu người dùng chọn sai, tô màu đỏ cảnh báo nút bấm đã chọn
+            if (isCorrect) {
+                btn.classList.add('correct');
+                playSound('correct');
+                createConfetti();
+            } else {
+                btn.classList.add('wrong');
+                card.classList.add('shake');
+                playSound('wrong');
+                setTimeout(() => card.classList.remove('shake'), 400);
+            }
+
+            // Mở hộp thoại giải thích chuyên sâu ngay dưới chân câu hỏi
+            document.getElementById(`exp-${qId}`).classList.add('active');
+            
+            // Ghi nhận trạng thái điểm số cục bộ của thẻ câu hỏi
+            card.setAttribute('data-answered', 'true');
+            card.setAttribute('data-score', isCorrect ? '1' : '0');
+        }
+
+        // --- HỆ THỐNG KIỂM TRA BÁO CÁO ĐIỂM SỐ CHUYÊN NGHIỆP ---
+        function gradeEntireQuiz() {
+            let totalQuestions = quizData.length;
+            let correctCount = 0;
+            let unansweredCount = 0;
+
+            quizData.forEach(q => {
+                const card = document.getElementById(`card-${q.id}`);
+                const score = card.getAttribute('data-score');
+                if (score === '1') correctCount++;
+                if (!card.getAttribute('data-answered')) unansweredCount++;
+            });
+
+            const percentage = (correctCount / totalQuestions) * 100;
+            document.getElementById('score-text').innerText = `${correctCount}/${totalQuestions}`;
+
+            let comment = "";
+            if (percentage < 50) {
+                comment = "Điểm số lần này chưa cao lắm, con cố gắng kéo lên xem lại kĩ bảng giải thích đáp án chi tiết từng câu, ghi lại từ vựng vào vở rồi bấm luyện tập lại nha. Cô tin con sẽ bứt phá điểm cao ở lần kế tiếp! ❤️";
+            } else if (percentage <= 83) {
+                comment = "Con làm bài khá tốt! Đã nắm tương đối vững hệ từ vựng chủ điểm xã hội và cấu trúc phân loại danh động từ (Gerund/Infinitive). Hãy rà soát lại thật kỹ những câu bị bôi đỏ để hoàn thiện kiến thức hoàn hảo nhé! ✨";
+            } else {
+                comment = "Quá xuất sắc! Bộ não của con phản xạ cấu trúc từ vựng và tư duy ngữ pháp Bị Động hệ động từ vô cùng thông minh, chính xác. Tiếp tục phát huy phong độ đỉnh cao này ở các bài thi tiếp theo con yêu nhé! 🎉🏆";
+            }
+
+            if (unansweredCount > 0) {
+                comment += `\n\n⚠️ (Lưu ý: Hiện tại vẫn còn ${unansweredCount} câu hỏi con đang bỏ sót trống chưa đưa ra đáp án bấm lựa chọn nhé!)`;
+            }
+
+            document.getElementById('comment-text').innerText = comment;
+            document.getElementById('result-modal').style.display = 'flex';
+
+            if (percentage >= 70) {
+                createConfetti();
+                setTimeout(createConfetti, 350);
+            }
+        }
+
+        function closeResultModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+
+        function CollegeRandom(min, max) { return Math.random() * (max - min) + min; }
+
+        // --- HIỆU ỨNG PHÁO HOA GIẤY HOÀN THÀNH XUẤT SẮC (CONFETTI CANVAS) ---
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let confettis = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function createConfetti() {
+            for (let i = 0; i < 45; i++) {
+                confettis.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    r: CollegeRandom(6, 11),
+                    d: Math.random() * canvas.height,
+                    color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+                    tilt: CollegeRandom(-10, 10),
+                    tiltAngleIncremental: CollegeRandom(-0.04, 0.04),
+                    tiltAngle: 0
+                });
+            }
+        }
+
+        function drawConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confettis.forEach((c, index) => {
+                c.tiltAngle += c.tiltAngleIncremental;
+                c.y += (Math.cos(c.d) + 3.5 + c.r / 2) / 2;
+                c.x += Math.sin(c.tiltAngle);
+                c.tilt = Math.sin(c.tiltAngle - index / 3) * 14;
+
+                if (c.y > canvas.height) {
+                    confettis.splice(index, 1);
+                    return;
+                }
+
+                ctx.beginPath();
+                ctx.lineWidth = c.r / 2;
+                ctx.strokeStyle = c.color;
+                ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+                ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+                ctx.stroke();
+            });
+            requestAnimationFrame(drawConfetti);
+        }
+        drawConfetti();
+    </script>
+</body>
+</html>
